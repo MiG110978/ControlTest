@@ -17,23 +17,30 @@ void FillingArrayString(String[] array)
     }
 }
 
-Console.WriteLine("Заполниет исходный массив со строковыми элементами");
-Console.Write("Введите количество элементов исходного массива - ");
-int size = int.Parse(Console.ReadLine());
-string[] arrayString = new string[size];
-FillingArrayString(arrayString);
-Console.Write("Проверьте, вы ввели массив - \t \t");
-PrintArrayString(arrayString);
-string[] arrayStringNew = new string[0];
-int sizeNew = 0;
-foreach (var element in arrayString)
+try
 {
-    if (element.Length <= 3)
+    Console.WriteLine("Заполниет исходный массив со строковыми элементами");
+    Console.Write("Введите количество элементов исходного массива - ");
+    int size = int.Parse(Console.ReadLine());
+    string[] arrayString = new string[size];
+    FillingArrayString(arrayString);
+    Console.Write("Проверьте, вы ввели массив - \t \t");
+    PrintArrayString(arrayString);
+    string[] arrayStringNew = new string[0];
+    int sizeNew = 0;
+    foreach (var element in arrayString)
     {
-        Array.Resize(ref arrayStringNew, sizeNew + 1);
-        arrayStringNew[sizeNew] = element;
-        sizeNew++;
+        if (element.Length <= 3)
+        {
+            Array.Resize(ref arrayStringNew, sizeNew + 1);
+            arrayStringNew[sizeNew] = element;
+            sizeNew++;
+        }
     }
+    Console.Write("Исходный массив был преобразован в \t");
+    PrintArrayString(arrayStringNew);
 }
-Console.Write("Исходный массив был преобразован в \t");
-PrintArrayString(arrayStringNew);
+catch
+{
+    Console.WriteLine("Неверный ввод");
+}
