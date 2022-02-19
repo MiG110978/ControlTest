@@ -28,9 +28,10 @@ try
     PrintArrayString(arrayString);
     string[] arrayStringNew = new string[0];
     int sizeNew = 0;
+    int maxNumberSymbol = 3;
     foreach (var element in arrayString)
     {
-        if (element.Length <= 3)
+        if (element.Length <= maxNumberSymbol)
         {
             Array.Resize(ref arrayStringNew, sizeNew + 1);
             arrayStringNew[sizeNew] = element;
