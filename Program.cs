@@ -8,9 +8,22 @@ void PrintArrayString(string[] array)
     Console.WriteLine();
 }
 
-string[] arrayString = { "123", "0457", ":-)", "мир", "0", "world" };
+void FillingArrayString(String[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"Введите {i} элемент массива - ");
+        array[i] = Console.ReadLine();
+    }
+}
+
+Console.WriteLine("Заполниет исходный массив со строковыми элементами");
+Console.Write("Введите количество элементов исходного массива - ");
+int size = int.Parse(Console.ReadLine());
+string[] arrayString = new string[size];
+FillingArrayString(arrayString);
+Console.Write("Проверьте, вы ввели массив - \t \t");
 PrintArrayString(arrayString);
-int size = arrayString.Length;
 string[] arrayStringNew = new string[0];
 int sizeNew = 0;
 foreach (var element in arrayString)
@@ -22,4 +35,5 @@ foreach (var element in arrayString)
         sizeNew++;
     }
 }
+Console.Write("Исходный массив был преобразован в \t");
 PrintArrayString(arrayStringNew);
